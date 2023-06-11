@@ -16,3 +16,10 @@ export 'person_aggregates.dart';
 export 'person_safe.dart';
 export 'person_view_safe.dart';
 export 'site.dart';
+
+export 'post_aggregates.dart';
+export 'post.dart';
+
+export 'post_view.dart';
+export 'get_posts_response.dart';
+export 'get_posts.dart';

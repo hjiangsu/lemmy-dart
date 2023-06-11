@@ -1,12 +1,6 @@
 import 'package:dio/dio.dart';
 
-// Models
-import 'package:lemmy/src/models/add_admin.dart';
-import 'package:lemmy/src/models/add_admin_response.dart';
-import 'package:lemmy/src/models/get_community.dart';
-import 'package:lemmy/src/models/get_community_response.dart';
-import 'package:lemmy/src/models/list_communities.dart';
-import 'package:lemmy/src/models/list_communities_response.dart';
+import 'package:lemmy/lemmy.dart';
 
 class Lemmy {
   Dio dio = Dio();
@@ -44,5 +38,15 @@ class Lemmy {
 
     ListCommunitiesResponse listCommunitiesResponse = ListCommunitiesResponse.fromJson(response.data);
     return listCommunitiesResponse;
+  }
+
+  Future<GetPostsResponse> getPosts(GetPosts form) async {
+    String url = "$apiUrl/post/list";
+
+    Response response = await dio.get(url, queryParameters: form.toJson());
+    if (response.statusCode != 200) throw Exception(response.statusMessage);
+
+    GetPostsResponse getPostsResponse = GetPostsResponse.fromJson(response.data);
+    return getPostsResponse;
   }
 }

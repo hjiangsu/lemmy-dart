@@ -1,10 +1,6 @@
-import 'dart:js_util';
+import 'package:test/test.dart';
 
 import 'package:lemmy/lemmy.dart';
-import 'package:lemmy/src/lemmy.dart';
-import 'package:lemmy/src/models/get_community.dart';
-import 'package:lemmy/src/models/list_communities.dart';
-import 'package:test/test.dart';
 
 void main() {
   Lemmy lemmy = Lemmy(baseUrl: 'https://lemmy.ml');
@@ -25,6 +21,21 @@ void main() {
 
       expect(listCommunitiesResponse, isNotNull);
       expect(listCommunitiesResponse.communities, hasLength(1));
+    });
+  });
+
+  group('GetPosts', () {
+    test('successfully fetches posts without any parameters', () async {
+      GetPostsResponse getPostsResponse = await lemmy.getPosts(GetPosts());
+
+      expect(getPostsResponse, isNotNull);
+    });
+
+    test('successfully fetches posts with parameters', () async {
+      GetPostsResponse getPostsResponse = await lemmy.getPosts(GetPosts(limit: 1));
+
+      expect(getPostsResponse, isNotNull);
+      expect(getPostsResponse.posts, hasLength(1));
     });
   });
 }
