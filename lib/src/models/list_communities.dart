@@ -8,6 +8,8 @@ class ListCommunities {
   SortType? sort;
   ListingType? type_;
 
+  ListCommunities({this.auth, this.limit, this.page, this.sort, this.type_});
+
   toJson() {
     Map<String, dynamic> json = {'auth': auth, 'limit': limit, 'page': page, 'sort': sort, 'type': type_};
     json.removeWhere((key, value) => value == null);
