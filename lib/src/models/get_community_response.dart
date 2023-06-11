@@ -1,8 +1,8 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import 'package:lemmy_dart/models/community_moderator_view.dart';
-import 'package:lemmy_dart/models/community_view.dart';
-import 'package:lemmy_dart/models/site.dart';
+import 'package:lemmy/src/models/community_moderator_view.dart';
+import 'package:lemmy/src/models/community_view.dart';
+import 'package:lemmy/src/models/site.dart';
 
 part 'get_community_response.g.dart';
 

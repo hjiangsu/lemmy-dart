@@ -1,4 +1,4 @@
-import 'package:lemmy_dart/models/person_view_safe.dart';
+import 'package:lemmy/src/models/person_view_safe.dart';
 
 class AddAdminResponse {
   List<PersonViewSafe>? admins;

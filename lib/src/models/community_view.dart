@@ -1,8 +1,8 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import 'package:lemmy_dart/enums/subscribed_type.dart';
-import 'package:lemmy_dart/models/community_aggregates.dart';
-import 'package:lemmy_dart/models/community_safe.dart';
+import 'package:lemmy/src/enums/subscribed_type.dart';
+import 'package:lemmy/src/models/community_aggregates.dart';
+import 'package:lemmy/src/models/community_safe.dart';
 
 part 'community_view.g.dart';
 

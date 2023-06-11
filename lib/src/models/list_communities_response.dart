@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import 'package:lemmy_dart/models/community_view.dart';
+import 'package:lemmy/src/models/community_view.dart';
 
 part 'list_communities_response.g.dart';
 

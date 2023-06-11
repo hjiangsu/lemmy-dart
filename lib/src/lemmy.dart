@@ -1,12 +1,12 @@
 import 'package:dio/dio.dart';
 
 // Models
-import 'package:lemmy_dart/models/add_admin.dart';
-import 'package:lemmy_dart/models/add_admin_response.dart';
-import 'package:lemmy_dart/models/get_community.dart';
-import 'package:lemmy_dart/models/get_community_response.dart';
-import 'package:lemmy_dart/models/list_communities.dart';
-import 'package:lemmy_dart/models/list_communities_response.dart';
+import 'package:lemmy/src/models/add_admin.dart';
+import 'package:lemmy/src/models/add_admin_response.dart';
+import 'package:lemmy/src/models/get_community.dart';
+import 'package:lemmy/src/models/get_community_response.dart';
+import 'package:lemmy/src/models/list_communities.dart';
+import 'package:lemmy/src/models/list_communities_response.dart';
 
 class Lemmy {
   Dio dio = Dio();

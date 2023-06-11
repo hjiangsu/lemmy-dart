@@ -1,6 +1,6 @@
-import 'package:lemmy_dart/lemmy_dart.dart';
-import 'package:lemmy_dart/models/get_community.dart';
-import 'package:lemmy_dart/models/list_communities.dart';
+import 'package:lemmy/src/lemmy.dart';
+import 'package:lemmy/src/models/get_community.dart';
+import 'package:lemmy/src/models/list_communities.dart';
 import 'package:test/test.dart';
 
 void main() {

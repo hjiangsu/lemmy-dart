@@ -1,5 +1,5 @@
-import 'package:lemmy_dart/models/person_aggregates.dart';
-import 'package:lemmy_dart/models/person_safe.dart';
+import 'package:lemmy/src/models/person_aggregates.dart';
+import 'package:lemmy/src/models/person_safe.dart';
 
 class PersonViewSafe {
   PersonSafe person;

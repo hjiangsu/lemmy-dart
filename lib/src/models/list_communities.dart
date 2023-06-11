@@ -1,5 +1,5 @@
-import 'package:lemmy_dart/enums/listing_type.dart';
-import 'package:lemmy_dart/enums/sort_type.dart';
+import 'package:lemmy/src/enums/listing_type.dart';
+import 'package:lemmy/src/enums/sort_type.dart';
 
 class ListCommunities {
   String? auth;

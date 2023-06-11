@@ -1,7 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import 'package:lemmy_dart/models/community_safe.dart';
-import 'package:lemmy_dart/models/person_safe.dart';
+import 'package:lemmy/src/models/community_safe.dart';
+import 'package:lemmy/src/models/person_safe.dart';
 
 part 'community_moderator_view.g.dart';
 
