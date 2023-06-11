@@ -9,6 +9,7 @@ environment:
 # Add regular dependencies here.
 dependencies:
   dio: ^5.2.0+1
+  json_annotation: ^4.8.1
   web_socket_channel: ^2.4.0
   # path: ^1.8.0
 
