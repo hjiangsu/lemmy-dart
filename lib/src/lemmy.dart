@@ -2,6 +2,8 @@ import 'package:dio/dio.dart';
 
 import 'package:lemmy/lemmy.dart';
 
+// Run "dart run build_runner build" to generate code
+
 class Lemmy {
   Dio dio = Dio();
 
@@ -38,6 +40,26 @@ class Lemmy {
 
     ListCommunitiesResponse listCommunitiesResponse = ListCommunitiesResponse.fromJson(response.data);
     return listCommunitiesResponse;
+  }
+
+  Future<GetCommentsResponse> getComments(GetComments form) async {
+    String url = "$apiUrl/comment/list";
+
+    Response response = await dio.get(url, queryParameters: form.toJson());
+    if (response.statusCode != 200) throw Exception(response.statusMessage);
+
+    GetCommentsResponse getCommentsResponse = GetCommentsResponse.fromJson(response.data);
+    return getCommentsResponse;
+  }
+
+  Future<GetPostResponse> getPost(GetPost form) async {
+    String url = "$apiUrl/post";
+
+    Response response = await dio.get(url, queryParameters: form.toJson());
+    if (response.statusCode != 200) throw Exception(response.statusMessage);
+
+    GetPostResponse getPostResponse = GetPostResponse.fromJson(response.data);
+    return getPostResponse;
   }
 
   Future<GetPostsResponse> getPosts(GetPosts form) async {

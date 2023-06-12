@@ -23,3 +23,13 @@ export 'post.dart';
 export 'post_view.dart';
 export 'get_posts_response.dart';
 export 'get_posts.dart';
+export 'get_post.dart';
+
+export 'get_post_response.dart';
+
+export 'comment_view.dart';
+export 'comment.dart';
+export 'comment_aggregates.dart';
+
+export 'get_comments_response.dart';
+export 'get_comments.dart';

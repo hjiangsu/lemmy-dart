@@ -24,6 +24,14 @@ void main() {
     });
   });
 
+  group('GetPost', () {
+    test('successfully fetches post with parameters', () async {
+      GetPostResponse getPostResponse = await lemmy.getPost(GetPost(id: 1147770));
+
+      expect(getPostResponse, isNotNull);
+    });
+  });
+
   group('GetPosts', () {
     test('successfully fetches posts without any parameters', () async {
       GetPostsResponse getPostsResponse = await lemmy.getPosts(GetPosts());
@@ -36,6 +44,21 @@ void main() {
 
       expect(getPostsResponse, isNotNull);
       expect(getPostsResponse.posts, hasLength(1));
+    });
+  });
+
+  group('GetComments', () {
+    test('successfully fetches comments without any parameters', () async {
+      GetCommentsResponse getCommentsResponse = await lemmy.getComments(GetComments());
+
+      expect(getCommentsResponse, isNotNull);
+    });
+
+    test('successfully fetches comments with parameters', () async {
+      GetCommentsResponse getCommentsResponse = await lemmy.getComments(GetComments(limit: 1));
+
+      expect(getCommentsResponse, isNotNull);
+      expect(getCommentsResponse.comments, hasLength(1));
     });
   });
 }
