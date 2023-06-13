@@ -112,8 +112,28 @@ class Lemmy {
     return postResponse;
   }
 
+  Future<PostResponse> createPost(CreatePost form) async {
+    String url = "$apiUrl/post";
+
+    Response response = await dio.put(url, data: form.toJson());
+    if (response.statusCode != 200) throw Exception(response.statusMessage);
+
+    PostResponse postResponse = PostResponse.fromJson(response.data);
+    return postResponse;
+  }
+
   Future<CommentResponse> likeComment(CreateCommentLike form) async {
     String url = "$apiUrl/comment/like";
+
+    Response response = await dio.post(url, data: form.toJson());
+    if (response.statusCode != 200) throw Exception(response.statusMessage);
+
+    CommentResponse commentResponse = CommentResponse.fromJson(response.data);
+    return commentResponse;
+  }
+
+  Future<CommentResponse> createComment(CreateComment form) async {
+    String url = "$apiUrl/comment";
 
     Response response = await dio.post(url, data: form.toJson());
     if (response.statusCode != 200) throw Exception(response.statusMessage);
