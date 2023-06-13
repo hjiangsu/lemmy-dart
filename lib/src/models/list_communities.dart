@@ -16,7 +16,7 @@ class ListCommunities {
       'limit': limit,
       'page': page,
       'sort': sort?.name,
-      'type': type_?.name,
+      'type_': type_?.name,
     };
 
     json.removeWhere((key, value) => value == null);

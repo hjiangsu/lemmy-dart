@@ -16,11 +16,22 @@ void main() {
       expect(listCommunitiesResponse, isNotNull);
     });
 
-    test('successfully lists communities with parameters', () async {
+    test('successfully lists communities with limit', () async {
       ListCommunitiesResponse listCommunitiesResponse = await lemmy.listCommunities(ListCommunities(limit: 1));
 
       expect(listCommunitiesResponse, isNotNull);
       expect(listCommunitiesResponse.communities, hasLength(1));
+    });
+
+    test('successfully lists communities with auth', () async {
+      ListCommunitiesResponse listCommunitiesResponse = await lemmy.listCommunities(
+        ListCommunities(
+          auth: "",
+          type_: ListingType.Subscribed,
+        ),
+      );
+
+      expect(listCommunitiesResponse, isNotNull);
     });
   });
 
@@ -53,12 +64,15 @@ void main() {
       expect(getPostsResponse.posts, hasLength(30));
     });
 
-    test('successfully fetches posts with sort of Active', () async {
-      GetPostsResponse getPostsResponse = await lemmy.getPosts(GetPosts(sort: SortType.Active));
+    test('successfully fetches posts with auth', () async {
+      GetPostsResponse getPostsResponse = await lemmy.getPosts(
+        GetPosts(
+          auth: "",
+        ),
+      );
 
       expect(getPostsResponse, isNotNull);
     });
-
     test('successfully fetches posts with community lemmy', () async {
       GetPostsResponse getPostsResponse = await lemmy.getPosts(GetPosts(communityName: 'lemmy'));
 
