@@ -101,4 +101,14 @@ class Lemmy {
     PostResponse postResponse = PostResponse.fromJson(response.data);
     return postResponse;
   }
+
+  Future<PostResponse> savePost(SavePost form) async {
+    String url = "$apiUrl/post/save";
+
+    Response response = await dio.put(url, data: form.toJson());
+    if (response.statusCode != 200) throw Exception(response.statusMessage);
+
+    PostResponse postResponse = PostResponse.fromJson(response.data);
+    return postResponse;
+  }
 }

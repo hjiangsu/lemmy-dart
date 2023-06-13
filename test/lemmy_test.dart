@@ -1,9 +1,11 @@
 import 'package:test/test.dart';
+import 'package:dotenv/dotenv.dart';
 
 import 'package:lemmy/lemmy.dart';
 
 void main() {
   Lemmy lemmy = Lemmy(baseUrl: 'https://lemmy.ml');
+  DotEnv env = DotEnv(includePlatformEnvironment: true)..load();
 
   test('GetCommunity', () async {
     await lemmy.getCommunity(GetCommunity(name: 'lemmy'));
@@ -118,7 +120,7 @@ void main() {
 
     test('successfully fetches user details with auth parameter', () async {
       GetPersonDetailsResponse getPersonDetailsResponse = await lemmy.getPersonDetails(GetPersonDetails(
-        auth: "",
+        auth: env.getOrElse('JWT', () => throw Exception('Missing JWT environment variable')),
         username: 'nutomic',
       ));
 
@@ -129,9 +131,21 @@ void main() {
   group('CreatePostLike', () {
     test('successfully likes a post', () async {
       PostResponse postResponse = await lemmy.likePost(CreatePostLike(
-        auth: "",
+        auth: env.getOrElse('JWT', () => throw Exception('Missing JWT environment variable')),
         postId: 1218702,
         score: 1,
+      ));
+
+      expect(postResponse, isNotNull);
+    });
+  });
+
+  group('SavePost', () {
+    test('successfully saves a post', () async {
+      PostResponse postResponse = await lemmy.savePost(SavePost(
+        auth: env.getOrElse('JWT', () => throw Exception('Missing JWT environment variable')),
+        postId: 1234235,
+        save: true,
       ));
 
       expect(postResponse, isNotNull);
