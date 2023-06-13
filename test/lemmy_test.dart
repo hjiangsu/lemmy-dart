@@ -151,4 +151,16 @@ void main() {
       expect(postResponse, isNotNull);
     });
   });
+
+  group('CreateCommentLike', () {
+    test('successfully likes a comment', () async {
+      CommentResponse commentResponse = await lemmy.likeComment(CreateCommentLike(
+        auth: env.getOrElse('JWT', () => throw Exception('Missing JWT environment variable')),
+        commentId: 575307,
+        score: 0,
+      ));
+
+      expect(commentResponse, isNotNull);
+    });
+  });
 }

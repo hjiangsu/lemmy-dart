@@ -111,4 +111,14 @@ class Lemmy {
     PostResponse postResponse = PostResponse.fromJson(response.data);
     return postResponse;
   }
+
+  Future<CommentResponse> likeComment(CreateCommentLike form) async {
+    String url = "$apiUrl/comment/like";
+
+    Response response = await dio.post(url, data: form.toJson());
+    if (response.statusCode != 200) throw Exception(response.statusMessage);
+
+    CommentResponse commentResponse = CommentResponse.fromJson(response.data);
+    return commentResponse;
+  }
 }
