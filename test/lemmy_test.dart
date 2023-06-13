@@ -4,7 +4,7 @@ import 'package:dotenv/dotenv.dart';
 import 'package:lemmy/lemmy.dart';
 
 void main() {
-  Lemmy lemmy = Lemmy(baseUrl: 'https://lemmy.ml');
+  Lemmy lemmy = Lemmy(baseUrl: 'https://lemmy.world');
   DotEnv env = DotEnv(includePlatformEnvironment: true)..load();
 
   test('GetCommunity', () async {
@@ -159,6 +159,20 @@ void main() {
         commentId: 575307,
         score: 0,
       ));
+
+      expect(commentResponse, isNotNull);
+    });
+  });
+
+  group('CreateComment', () {
+    test('successfully created a comment', () async {
+      CommentResponse commentResponse = await lemmy.createComment(
+        CreateComment(
+          auth: env.getOrElse('JWT', () => throw Exception('Missing JWT environment variable')),
+          postId: 107668,
+          content: 'This is a test comment, don\'t mind this',
+        ),
+      );
 
       expect(commentResponse, isNotNull);
     });

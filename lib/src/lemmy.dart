@@ -5,7 +5,10 @@ import 'package:lemmy/lemmy.dart';
 // Run "dart run build_runner build" to generate code
 
 class Lemmy {
-  Dio dio = Dio();
+  Dio dio = Dio(BaseOptions(
+    connectTimeout: Duration(seconds: 5),
+    receiveTimeout: Duration(seconds: 3),
+  ));
 
   Map<String, dynamic>? headers;
   String baseUrl;
@@ -115,7 +118,7 @@ class Lemmy {
   Future<PostResponse> createPost(CreatePost form) async {
     String url = "$apiUrl/post";
 
-    Response response = await dio.put(url, data: form.toJson());
+    Response response = await dio.post(url, data: form.toJson());
     if (response.statusCode != 200) throw Exception(response.statusMessage);
 
     PostResponse postResponse = PostResponse.fromJson(response.data);
