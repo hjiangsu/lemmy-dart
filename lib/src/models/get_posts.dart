@@ -33,9 +33,10 @@ class GetPosts {
       'limit': limit,
       'page': page,
       'saved_only': savedOnly,
-      'sort': sort,
-      'type_': type_,
+      'sort': sort?.name,
+      'type_': type_?.name,
     };
+
     json.removeWhere((key, value) => value == null);
 
     return json;

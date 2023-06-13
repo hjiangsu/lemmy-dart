@@ -11,7 +11,14 @@ class ListCommunities {
   ListCommunities({this.auth, this.limit, this.page, this.sort, this.type_});
 
   toJson() {
-    Map<String, dynamic> json = {'auth': auth, 'limit': limit, 'page': page, 'sort': sort, 'type': type_};
+    Map<String, dynamic> json = {
+      'auth': auth,
+      'limit': limit,
+      'page': page,
+      'sort': sort?.name,
+      'type': type_?.name,
+    };
+
     json.removeWhere((key, value) => value == null);
 
     return json;

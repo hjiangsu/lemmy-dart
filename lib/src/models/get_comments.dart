@@ -52,8 +52,8 @@ class GetComments {
       'parent_id': parentId,
       'post_id': postId,
       'saved_only': savedOnly,
-      'sort': sort,
-      'type_': type_,
+      'sort': sort?.name,
+      'type_': type_?.name,
     };
 
     json.removeWhere((key, value) => value == null);

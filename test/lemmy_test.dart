@@ -39,11 +39,30 @@ void main() {
       expect(getPostsResponse, isNotNull);
     });
 
-    test('successfully fetches posts with parameters', () async {
+    test('successfully fetches posts with limit of 1', () async {
       GetPostsResponse getPostsResponse = await lemmy.getPosts(GetPosts(limit: 1));
 
       expect(getPostsResponse, isNotNull);
       expect(getPostsResponse.posts, hasLength(1));
+    });
+
+    test('successfully fetches posts with limit of 30', () async {
+      GetPostsResponse getPostsResponse = await lemmy.getPosts(GetPosts(limit: 30));
+
+      expect(getPostsResponse, isNotNull);
+      expect(getPostsResponse.posts, hasLength(30));
+    });
+
+    test('successfully fetches posts with sort of Active', () async {
+      GetPostsResponse getPostsResponse = await lemmy.getPosts(GetPosts(sort: SortType.Active));
+
+      expect(getPostsResponse, isNotNull);
+    });
+
+    test('successfully fetches posts with community lemmy', () async {
+      GetPostsResponse getPostsResponse = await lemmy.getPosts(GetPosts(communityName: 'lemmy'));
+
+      expect(getPostsResponse, isNotNull);
     });
   });
 
