@@ -125,4 +125,16 @@ void main() {
       expect(getPersonDetailsResponse, isNotNull);
     });
   });
+
+  group('CreatePostLike', () {
+    test('successfully likes a post', () async {
+      PostResponse postResponse = await lemmy.likePost(CreatePostLike(
+        auth: "",
+        postId: 1218702,
+        score: 1,
+      ));
+
+      expect(postResponse, isNotNull);
+    });
+  });
 }

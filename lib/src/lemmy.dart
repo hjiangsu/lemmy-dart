@@ -91,4 +91,14 @@ class Lemmy {
     GetPersonDetailsResponse getPersonDetailsResponse = GetPersonDetailsResponse.fromJson(response.data);
     return getPersonDetailsResponse;
   }
+
+  Future<PostResponse> likePost(CreatePostLike form) async {
+    String url = "$apiUrl/post/like";
+
+    Response response = await dio.post(url, data: form.toJson());
+    if (response.statusCode != 200) throw Exception(response.statusMessage);
+
+    PostResponse postResponse = PostResponse.fromJson(response.data);
+    return postResponse;
+  }
 }
