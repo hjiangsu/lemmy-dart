@@ -81,4 +81,14 @@ class Lemmy {
     LoginResponse loginResponse = LoginResponse.fromJson(response.data);
     return loginResponse;
   }
+
+  Future<GetPersonDetailsResponse> getPersonDetails(GetPersonDetails form) async {
+    String url = "$apiUrl/user";
+
+    Response response = await dio.get(url, queryParameters: form.toJson());
+    if (response.statusCode != 200) throw Exception(response.statusMessage);
+
+    GetPersonDetailsResponse getPersonDetailsResponse = GetPersonDetailsResponse.fromJson(response.data);
+    return getPersonDetailsResponse;
+  }
 }

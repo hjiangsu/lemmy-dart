@@ -108,4 +108,21 @@ void main() {
     //   expect(loginResponse, throwsException);
     // });
   });
+
+  group('GetPersonDetails', () {
+    test('successfully fetches user details with username parameter', () async {
+      GetPersonDetailsResponse getPersonDetailsResponse = await lemmy.getPersonDetails(GetPersonDetails(username: 'nutomic'));
+
+      expect(getPersonDetailsResponse, isNotNull);
+    });
+
+    test('successfully fetches user details with auth parameter', () async {
+      GetPersonDetailsResponse getPersonDetailsResponse = await lemmy.getPersonDetails(GetPersonDetails(
+        auth: "",
+        username: 'nutomic',
+      ));
+
+      expect(getPersonDetailsResponse, isNotNull);
+    });
+  });
 }

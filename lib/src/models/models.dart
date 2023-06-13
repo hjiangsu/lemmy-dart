@@ -36,3 +36,6 @@ export 'get_comments.dart';
 
 export 'login_response.dart';
 export 'login.dart';
+
+export 'get_person_details.dart';
+export 'get_person_details_response.dart';
