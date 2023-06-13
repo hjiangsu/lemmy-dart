@@ -71,4 +71,14 @@ class Lemmy {
     GetPostsResponse getPostsResponse = GetPostsResponse.fromJson(response.data);
     return getPostsResponse;
   }
+
+  Future<LoginResponse> login(Login form) async {
+    String url = "$apiUrl/user/login";
+
+    Response response = await dio.post(url, data: form.toJson());
+    if (response.statusCode != 200) throw Exception(response.statusMessage);
+
+    LoginResponse loginResponse = LoginResponse.fromJson(response.data);
+    return loginResponse;
+  }
 }

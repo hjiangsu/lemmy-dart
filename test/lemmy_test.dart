@@ -80,4 +80,18 @@ void main() {
       expect(getCommentsResponse.comments, hasLength(1));
     });
   });
+
+  group('Login', () {
+    test('fails login with wrong username', () async {
+      LoginResponse loginResponse = await lemmy.login(Login(usernameOrEmail: 'wrong', password: 'wrong'));
+
+      expect(loginResponse, throwsException);
+    });
+
+    // test('successful login with correct credentials', () async {
+    //   LoginResponse loginResponse = await lemmy.login(Login(usernameOrEmail: 'username', password: 'password'));
+
+    //   expect(loginResponse, throwsException);
+    // });
+  });
 }
