@@ -197,7 +197,7 @@ void main() {
     test('successfully performed a search', () async {
       SearchResponse searchResponse = await lemmy.search(
         Search(
-          q: 'thunder',
+          q: 't',
         ),
       );
 

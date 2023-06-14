@@ -6,8 +6,8 @@ import 'package:lemmy/lemmy.dart';
 
 class Lemmy {
   Dio dio = Dio(BaseOptions(
-    connectTimeout: Duration(seconds: 5),
-    receiveTimeout: Duration(seconds: 3),
+    connectTimeout: Duration(seconds: 10),
+    receiveTimeout: Duration(seconds: 10),
   ));
 
   Map<String, dynamic>? headers;
