@@ -154,4 +154,14 @@ class Lemmy {
     SearchResponse searchResponse = SearchResponse.fromJson(response.data);
     return searchResponse;
   }
+
+  Future<CommunityResponse> followCommunity(FollowCommunity form) async {
+    String url = "$apiUrl/community/follow";
+
+    Response response = await dio.post(url, data: form.toJson());
+    if (response.statusCode != 200) throw Exception(response.statusMessage);
+
+    CommunityResponse communityResponse = CommunityResponse.fromJson(response.data);
+    return communityResponse;
+  }
 }

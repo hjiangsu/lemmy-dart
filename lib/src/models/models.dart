@@ -52,3 +52,6 @@ export 'create_comment.dart';
 
 export 'search.dart';
 export 'search_response.dart';
+
+export 'community_response.dart';
+export 'follow_community.dart';

@@ -204,4 +204,30 @@ void main() {
       expect(searchResponse, isNotNull);
     });
   });
+
+  group('FollowCommunity', () {
+    test('successfully follows a community', () async {
+      CommunityResponse communityResponse = await lemmy.followCommunity(
+        FollowCommunity(
+          auth: env.getOrElse('JWT', () => throw Exception('Missing JWT environment variable')),
+          communityId: 5,
+          follow: true,
+        ),
+      );
+
+      expect(communityResponse, communityResponse.communityView.subscribed == SubscribedType.Subscribed);
+    });
+
+    test('successfully unfollows a community', () async {
+      CommunityResponse communityResponse = await lemmy.followCommunity(
+        FollowCommunity(
+          auth: env.getOrElse('JWT', () => throw Exception('Missing JWT environment variable')),
+          communityId: 5,
+          follow: false,
+        ),
+      );
+
+      expect(communityResponse, communityResponse.communityView.subscribed == SubscribedType.NotSubscribed);
+    });
+  });
 }
