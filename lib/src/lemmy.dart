@@ -144,4 +144,14 @@ class Lemmy {
     CommentResponse commentResponse = CommentResponse.fromJson(response.data);
     return commentResponse;
   }
+
+  Future<SearchResponse> search(Search form) async {
+    String url = "$apiUrl/search";
+
+    Response response = await dio.get(url, queryParameters: form.toJson());
+    if (response.statusCode != 200) throw Exception(response.statusMessage);
+
+    SearchResponse searchResponse = SearchResponse.fromJson(response.data);
+    return searchResponse;
+  }
 }

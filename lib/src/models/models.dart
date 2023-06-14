@@ -49,3 +49,6 @@ export 'create_comment_like.dart';
 
 export 'create_post.dart';
 export 'create_comment.dart';
+
+export 'search.dart';
+export 'search_response.dart';

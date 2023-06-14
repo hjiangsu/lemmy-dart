@@ -164,6 +164,21 @@ void main() {
     });
   });
 
+  group('CreatePost', () {
+    test('successfully created a post', () async {
+      PostResponse postResponse = await lemmy.createPost(
+        CreatePost(
+          auth: env.getOrElse('JWT', () => throw Exception('Missing JWT environment variable')),
+          communityId: 107668,
+          body: 'This is a test post, don\'t mind this',
+          name: '',
+        ),
+      );
+
+      expect(postResponse, isNotNull);
+    });
+  });
+
   group('CreateComment', () {
     test('successfully created a comment', () async {
       CommentResponse commentResponse = await lemmy.createComment(
@@ -175,6 +190,18 @@ void main() {
       );
 
       expect(commentResponse, isNotNull);
+    });
+  });
+
+  group('Search', () {
+    test('successfully performed a search', () async {
+      SearchResponse searchResponse = await lemmy.search(
+        Search(
+          q: 'thunder',
+        ),
+      );
+
+      expect(searchResponse, isNotNull);
     });
   });
 }
