@@ -145,6 +145,16 @@ class Lemmy {
     return commentResponse;
   }
 
+  Future<CommentResponse> saveComment(SaveComment form) async {
+    String url = "$apiUrl/comment/save";
+
+    Response response = await dio.put(url, data: form.toJson());
+    if (response.statusCode != 200) throw Exception(response.statusMessage);
+
+    CommentResponse commentResponse = CommentResponse.fromJson(response.data);
+    return commentResponse;
+  }
+
   Future<SearchResponse> search(Search form) async {
     String url = "$apiUrl/search";
 

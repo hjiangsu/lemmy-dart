@@ -230,4 +230,26 @@ void main() {
       expect(communityResponse, communityResponse.communityView.subscribed == SubscribedType.NotSubscribed);
     });
   });
+
+  group('SaveComment', () {
+    test('successfully saves a comment', () async {
+      CommentResponse commentResponse = await lemmy.saveComment(SaveComment(
+        auth: env.getOrElse('JWT', () => throw Exception('Missing JWT environment variable')),
+        commentId: 244455,
+        save: true,
+      ));
+
+      expect(commentResponse.commentView.saved, isTrue);
+    });
+
+    test('successfully unsaves a comment', () async {
+      CommentResponse commentResponse = await lemmy.saveComment(SaveComment(
+        auth: env.getOrElse('JWT', () => throw Exception('Missing JWT environment variable')),
+        commentId: 244455,
+        save: false,
+      ));
+
+      expect(commentResponse.commentView.saved, isFalse);
+    });
+  });
 }
