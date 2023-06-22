@@ -18,7 +18,7 @@ PersonSafe _$PersonSafeFromJson(Map<String, dynamic> json) => PersonSafe(
       deleted: json['deleted'] as bool,
       displayName: json['display_name'] as String?,
       id: json['id'] as int,
-      inboxUrl: json['inbox_url'] as String,
+      inboxUrl: json['inbox_url'] as String?,
       instanceId: json['instance_id'] as int,
       local: json['local'] as bool,
       matrixUserId: json['matrix_user_id'] as String?,

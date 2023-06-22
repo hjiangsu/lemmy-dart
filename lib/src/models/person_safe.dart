@@ -25,7 +25,7 @@ class PersonSafe {
   int id;
 
   @JsonKey(name: 'inbox_url')
-  String inboxUrl;
+  String? inboxUrl;
 
   @JsonKey(name: 'instance_id')
   int instanceId;
@@ -52,7 +52,7 @@ class PersonSafe {
     required this.deleted,
     this.displayName,
     required this.id,
-    required this.inboxUrl,
+    this.inboxUrl,
     required this.instanceId,
     required this.local,
     this.matrixUserId,
