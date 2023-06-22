@@ -19,7 +19,7 @@ GetCommunityResponse _$GetCommunityResponseFromJson(
           .map(
               (e) => CommunityModeratorView.fromJson(e as Map<String, dynamic>))
           .toList(),
-      online: json['online'] as int,
+      online: json['online'] as int?,
       site: json['site'] == null
           ? null
           : Site.fromJson(json['site'] as Map<String, dynamic>),

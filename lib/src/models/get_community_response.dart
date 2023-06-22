@@ -18,7 +18,7 @@ class GetCommunityResponse {
   List<int>? discussionLanguages;
 
   List<CommunityModeratorView> moderators;
-  int online;
+  int? online;
   Site? site;
 
   GetCommunityResponse({required this.communityView, this.defaultPostLanguage, this.discussionLanguages, required this.moderators, required this.online, this.site});
