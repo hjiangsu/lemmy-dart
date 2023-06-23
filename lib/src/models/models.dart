@@ -57,3 +57,31 @@ export 'community_response.dart';
 export 'follow_community.dart';
 
 export 'save_comment.dart';
+
+// Private Messages
+export 'private_message.dart';
+export 'private_message_response.dart';
+export 'private_messages_response.dart';
+export 'private_message_view.dart';
+export 'mark_private_message_as_read.dart';
+
+export 'create_private_message.dart';
+export 'edit_private_message.dart';
+export 'delete_private_message.dart';
+export 'get_private_messages.dart';
+
+// Mentions
+export 'person_mention.dart';
+export 'person_mention_view.dart';
+export 'person_mention_response.dart';
+export 'mark_person_mention_as_read.dart';
+export 'get_person_mentions_response.dart';
+export 'get_person_mentions.dart';
+
+// Replies
+export 'get_replies.dart';
+export 'get_replies_response.dart';
+export 'comment_reply.dart';
+export 'comment_reply_view.dart';
+export 'mark_comment_reply_as_read.dart';
+export 'comment_reply_response.dart';

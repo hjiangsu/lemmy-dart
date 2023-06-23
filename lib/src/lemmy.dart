@@ -174,4 +174,97 @@ class Lemmy {
     CommunityResponse communityResponse = CommunityResponse.fromJson(response.data);
     return communityResponse;
   }
+
+  // Private Messages
+  Future<PrivateMessageResponse> createPrivateMessage(CreatePrivateMessage form) async {
+    String url = "$apiUrl/private_message";
+
+    Response response = await dio.post(url, data: form.toJson());
+    if (response.statusCode != 200) throw Exception(response.statusMessage);
+
+    PrivateMessageResponse privateMessageResponse = PrivateMessageResponse.fromJson(response.data);
+    return privateMessageResponse;
+  }
+
+  Future<PrivateMessageResponse> editPrivateMessage(EditPrivateMessage form) async {
+    String url = "$apiUrl/private_message";
+
+    Response response = await dio.put(url, data: form.toJson());
+    if (response.statusCode != 200) throw Exception(response.statusMessage);
+
+    PrivateMessageResponse privateMessageResponse = PrivateMessageResponse.fromJson(response.data);
+    return privateMessageResponse;
+  }
+
+  Future<PrivateMessagesResponse> getPrivateMessages(GetPrivateMessages form) async {
+    String url = "$apiUrl/private_message/list";
+
+    Response response = await dio.get(url, queryParameters: form.toJson());
+    if (response.statusCode != 200) throw Exception(response.statusMessage);
+
+    PrivateMessagesResponse privateMessagesResponse = PrivateMessagesResponse.fromJson(response.data);
+    return privateMessagesResponse;
+  }
+
+  Future<PrivateMessageResponse> deletePrivateMessage(DeletePrivateMessage form) async {
+    String url = "$apiUrl/private_message/delete";
+
+    Response response = await dio.post(url, data: form.toJson());
+    if (response.statusCode != 200) throw Exception(response.statusMessage);
+
+    PrivateMessageResponse privateMessageResponse = PrivateMessageResponse.fromJson(response.data);
+    return privateMessageResponse;
+  }
+
+  Future<PrivateMessageResponse> markPrivateMessageAsRead(MarkPrivateMessageAsRead form) async {
+    String url = "$apiUrl/private_message/mark_as_read";
+
+    Response response = await dio.post(url, data: form.toJson());
+    if (response.statusCode != 200) throw Exception(response.statusMessage);
+
+    PrivateMessageResponse privateMessageResponse = PrivateMessageResponse.fromJson(response.data);
+    return privateMessageResponse;
+  }
+
+  // Mentions
+  Future<GetPersonMentionsResponse> getPersonMentions(GetPersonMentions form) async {
+    String url = "$apiUrl/user/mention";
+
+    Response response = await dio.get(url, queryParameters: form.toJson());
+    if (response.statusCode != 200) throw Exception(response.statusMessage);
+
+    GetPersonMentionsResponse getPersonMentionsResponse = GetPersonMentionsResponse.fromJson(response.data);
+    return getPersonMentionsResponse;
+  }
+
+  Future<PersonMentionResponse> markPersonMentionAsRead(MarkPersonMentionAsRead form) async {
+    String url = "$apiUrl/user/mention/mark_as_read";
+
+    Response response = await dio.post(url, data: form.toJson());
+    if (response.statusCode != 200) throw Exception(response.statusMessage);
+
+    PersonMentionResponse personMentionResponse = PersonMentionResponse.fromJson(response.data);
+    return personMentionResponse;
+  }
+
+  // Replies
+  Future<GetRepliesResponse> getReplies(GetReplies form) async {
+    String url = "$apiUrl/user/replies";
+
+    Response response = await dio.get(url, queryParameters: form.toJson());
+    if (response.statusCode != 200) throw Exception(response.statusMessage);
+
+    GetRepliesResponse getRepliesResponse = GetRepliesResponse.fromJson(response.data);
+    return getRepliesResponse;
+  }
+
+  Future<CommentReplyResponse> markCommentReplyAsRead(MarkCommentReplyAsRead form) async {
+    String url = "$apiUrl/comment/mark_as_read";
+
+    Response response = await dio.post(url, data: form.toJson());
+    if (response.statusCode != 200) throw Exception(response.statusMessage);
+
+    CommentReplyResponse commentReplyResponse = CommentReplyResponse.fromJson(response.data);
+    return commentReplyResponse;
+  }
 }
