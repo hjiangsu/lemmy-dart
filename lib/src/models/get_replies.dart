@@ -17,7 +17,13 @@ class GetReplies {
   });
 
   toJson() {
-    Map<String, dynamic> json = {'auth': auth, 'limit': limit, 'page': page, 'sort': sort, 'unread_only': unreadOnly};
+    Map<String, dynamic> json = {
+      'auth': auth,
+      'limit': limit,
+      'page': page,
+      'sort': sort?.name,
+      'unread_only': unreadOnly,
+    };
 
     json.removeWhere((key, value) => value == null);
 

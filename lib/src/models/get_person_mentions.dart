@@ -10,7 +10,13 @@ class GetPersonMentions {
   GetPersonMentions({required this.auth, this.limit, this.page, required this.sort, this.unreadOnly});
 
   toJson() {
-    Map<String, dynamic> json = {'auth': auth, 'limit': limit, 'page': page, 'sort': sort, 'unread_only': unreadOnly};
+    Map<String, dynamic> json = {
+      'auth': auth,
+      'limit': limit,
+      'page': page,
+      'sort': sort.name,
+      'unread_only': unreadOnly,
+    };
     json.removeWhere((key, value) => value == null);
 
     return json;
