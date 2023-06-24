@@ -8,7 +8,7 @@ class GetPostResponse {
   @JsonKey(name: 'community_view')
   CommunityView communityView;
   List<CommunityModeratorView> moderators;
-  int online;
+  int? online;
 
   @JsonKey(name: 'post_view')
   PostView postView;

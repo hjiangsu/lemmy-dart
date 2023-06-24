@@ -14,7 +14,7 @@ GetPostResponse _$GetPostResponseFromJson(Map<String, dynamic> json) =>
           .map(
               (e) => CommunityModeratorView.fromJson(e as Map<String, dynamic>))
           .toList(),
-      online: json['online'] as int,
+      online: json['online'] as int?,
       postView: PostView.fromJson(json['post_view'] as Map<String, dynamic>),
     );
 
